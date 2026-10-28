@@ -154,6 +154,9 @@ legend { padding: 0; margin-bottom: 12px; font-family: var(--font-display); font
 .field [aria-invalid="true"] { border-color: var(--danger); }
 .err { color: var(--danger); font-size: 0.82rem; }
 .hint { color: var(--muted); font-size: 0.82rem; }
+.extra { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; justify-content: center; text-align: center; padding: 14px 16px; margin: 0 auto 18px; max-width: 640px; border: 1px dashed var(--gold); border-radius: 5px; }
+.extra strong { color: var(--gold-soft); }
+.extra b { color: var(--gold-soft); white-space: nowrap; }
 
 .summary { background: var(--surface); border: 1px solid var(--gold); border-radius: 6px; padding: 22px 20px; display: grid; gap: 16px; min-width: 0; }
 .summary h3 { font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase; }
@@ -237,7 +240,7 @@ footer .slogan { font-family: var(--font-script); font-style: italic; font-weigh
         <p class="sum">Entretien régulier.</p>
         <div class="groups">
           <div><h4>Intérieur</h4><ul><li>Aspiration complète (sièges, tapis, coffre)</li><li>Dépoussiérage des plastiques</li><li>Vitres</li></ul></div>
-          <div><h4>Extérieur</h4><ul><li>Lavage carrosserie à la main, séchage microfibre</li><li>Nettoyage des jantes</li></ul></div>
+          <div><h4>Extérieur</h4><ul><li>Lavage carrosserie à l'eau au nettoyeur haute pression (Kärcher) avec produits adaptés, séchage microfibre</li><li>Nettoyage des jantes</li></ul></div>
         </div>
         <button class="btn ghost" type="button" data-pick="essentiel">Choisir cette formule</button>
       </article>
@@ -279,6 +282,7 @@ footer .slogan { font-family: var(--font-script); font-style: italic; font-weigh
   </section>
 
   <section id="supplements">
+    <div class="extra"><strong>Supplément véhicule très sale</strong><span>Poils d'animaux, boue, sable, terre… : <b>+ 45 €</b>, à cocher lors de la réservation.</span></div>
     <p class="quote">Un intérieur propre, c'est un esprit plus serein !</p>
   </section>
 
@@ -308,6 +312,7 @@ footer .slogan { font-family: var(--font-script); font-style: italic; font-weigh
             <input id="vehicule" name="vehicule" type="text" placeholder="Ex. BMW Série 3" aria-describedby="err-vehicule">
             <p class="err" id="err-vehicule" hidden></p>
           </div>
+          <label class="choice"><input type="checkbox" name="opt" value="sale"><span class="n">Supplément véhicule très sale<span class="sub">Poils d'animaux, boue, sable, terre…</span></span><span class="p">+ 45 €</span></label>
           
         </fieldset>
 
@@ -452,7 +457,7 @@ footer .slogan { font-family: var(--font-script); font-style: italic; font-weigh
 (function () {
   var PRICE = { essentiel: 69, integral: 129, detailing: 229, textiles: 49 };
   var NAME = { essentiel: "Formule Essentiel", integral: "Formule Intégral", detailing: "Formule Detailing", textiles: "Textiles & Canapés" };
-  var OPT = { poils: { label: "Poils d'animaux / très sale", price: 45 }, phares: { label: "Optiques de phares (la paire)", price: 20 }, cuir: { label: "Soin du cuir / anti-odeurs", price: 30 } };
+  var OPT = { sale: { label: "Supplément véhicule très sale (poils d'animaux, boue…)", price: 45 } };
   var WA = "https://wa.me/33634036568";
 
   var $ = function (id) { return document.getElementById(id); };
