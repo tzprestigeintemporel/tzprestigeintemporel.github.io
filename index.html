@@ -106,7 +106,7 @@ section { padding-block: 44px; border-top: 1px solid var(--line); }
 /* Formula cards */
 .cards { display: grid; grid-template-columns: 1fr; gap: 16px; }
 @media (min-width: 620px) { .cards { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1020px) { .cards { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 1020px) { .cards { grid-template-columns: repeat(3, 1fr); } }
 .card { position: relative; display: flex; flex-direction: column; gap: 14px; min-width: 0; padding: 22px 20px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
 .card.rec { border-color: var(--gold); background: linear-gradient(180deg, var(--surface-2), var(--surface)); box-shadow: 0 0 0 1px rgba(217, 178, 95, 0.35), 0 12px 40px rgba(217, 178, 95, 0.08); }
 .badge { position: absolute; top: -11px; left: 20px; background: var(--gold); color: #1a1405; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; }
@@ -238,7 +238,7 @@ footer .slogan { font-family: var(--font-script); font-style: italic; font-weigh
   <section id="formules">
     <div class="sec-head">
       <p class="eyebrow">Nos formules</p>
-      <h2>Quatre niveaux de soin, du simple entretien à la rénovation prestige</h2>
+      <h2>Cinq formules, du simple entretien à la rénovation prestige</h2>
       <p>Chaque formule inclut la précédente. Les prix sont des tarifs « à partir de » et dépendent de la taille et de l'état du véhicule.</p>
     </div>
     <div class="cards">
@@ -254,11 +254,21 @@ footer .slogan { font-family: var(--font-script); font-style: italic; font-weigh
 
       <article class="card rec">
         <span class="badge">Recommandé</span>
-        <h3>Formule Intégral</h3>
-        <div class="price"><small>À partir de</small> 129 €</div>
-        <p class="sum">Remise en état complète et shampoing textile. Inclut la formule Essentiel, plus :</p>
+        <h3>Formule Intégral Intérieur</h3>
+        <div class="price"><small>À partir de</small> 99 €</div>
+        <p class="sum">Remise en état complète de l'habitacle et shampoing textile. Inclut la formule Essentiel, plus :</p>
         <div class="groups">
           <div><h4>Intérieur</h4><ul><li>Shampoing injecteur-extracteur sièges et tapis</li><li>Dégraissage des plastiques</li><li>Volant, contours de portes</li></ul></div>
+        </div>
+        <button class="btn" type="button" data-pick="integral_int">Choisir cette formule</button>
+      </article>
+
+      <article class="card rec">
+        <span class="badge">Recommandé</span>
+        <h3>Formule Intégral</h3>
+        <div class="price"><small>À partir de</small> 139 €</div>
+        <p class="sum">Intérieur et extérieur. Inclut la formule Intégral Intérieur, plus :</p>
+        <div class="groups">
           <div><h4>Extérieur</h4><ul><li>Lavage carrosserie à l'eau au nettoyeur haute pression (Kärcher) avec produits adaptés, séchage microfibre</li><li>Démoustiquage, décontamination</li><li>Jantes, brillant à pneus</li></ul></div>
         </div>
         <button class="btn" type="button" data-pick="integral">Choisir cette formule</button>
@@ -306,7 +316,8 @@ footer .slogan { font-family: var(--font-script); font-style: italic; font-weigh
           <legend>Prestation</legend>
           <div class="choices">
             <label class="choice"><input type="radio" name="formule" value="essentiel"><span class="n">Essentiel</span><span class="p">dès 59 €</span></label>
-            <label class="choice"><input type="radio" name="formule" value="integral" checked><span class="n">Intégral<span class="sub">Recommandé</span></span><span class="p">dès 129 €</span></label>
+            <label class="choice"><input type="radio" name="formule" value="integral_int" checked><span class="n">Intégral Intérieur<span class="sub">Recommandé · sans extérieur</span></span><span class="p">dès 99 €</span></label>
+            <label class="choice"><input type="radio" name="formule" value="integral"><span class="n">Intégral<span class="sub">Recommandé · avec extérieur</span></span><span class="p">dès 139 €</span></label>
             <label class="choice"><input type="radio" name="formule" value="detailing"><span class="n">Detailing</span><span class="p">dès 229 €</span></label>
             <label class="choice"><input type="radio" name="formule" value="textiles"><span class="n">Textiles &amp; Canapés<span class="sub">Sur devis</span></span><span class="p">dès 49 €</span></label>
           </div>
@@ -462,8 +473,8 @@ footer .slogan { font-family: var(--font-script); font-style: italic; font-weigh
 
 <script>
 (function () {
-  var PRICE = { essentiel: 59, integral: 129, detailing: 229, textiles: 49 };
-  var NAME = { essentiel: "Formule Essentiel", integral: "Formule Intégral", detailing: "Formule Detailing", textiles: "Textiles & Canapés" };
+  var PRICE = { essentiel: 59, integral_int: 99, integral: 139, detailing: 229, textiles: 49 };
+  var NAME = { essentiel: "Formule Essentiel", integral_int: "Formule Intégral Intérieur", integral: "Formule Intégral", detailing: "Formule Detailing", textiles: "Textiles & Canapés" };
   var OPT = { sale: { label: "Supplément véhicule très sale (poils d'animaux, boue…)", price: 45 } };
   var WA = "https://wa.me/33634036568";
 
